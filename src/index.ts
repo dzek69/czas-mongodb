@@ -1,14 +1,14 @@
 import mdb from "mongodb";
 import type { Collection } from "mongodb";
-import type { Persistence } from "czas";
-import type { ActionParam, DateConfig } from "czas/dist";
+import type { Persistence, DateConfig, Action as ActionParam } from "czas";
 
 const createDriver = (collection: Collection, onLoad?: () => void): Persistence => {
     const callbacks: Persistence = {
-        add: async (config, action) => {
+        add: async (config, action, name) => {
             const i = await collection.insertOne({
                 config,
                 action,
+                name,
             });
             return String(i.insertedId);
         },
@@ -20,6 +20,7 @@ const createDriver = (collection: Collection, onLoad?: () => void): Persistence 
         load: async () => {
             const list = await collection.find({}).toArray() as {
                 _id: mdb.ObjectId;
+                name: string;
                 config: DateConfig;
                 action: ActionParam;
             }[];
