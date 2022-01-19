@@ -1,6 +1,6 @@
 {
   "name": "czas-mongodb",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "repository": "git@github.com:dzek69/czas-mongodb.git",
   "author": "Jacek Nowacki",
   "license": "MIT",
@@ -38,7 +38,7 @@
     "@types/mongodb": "^3.6.3",
     "@typescript-eslint/eslint-plugin": "^4.11.1",
     "@typescript-eslint/parser": "^4.11.1",
-    "czas": "^1.1.0",
+    "czas": "^1.2.0",
     "eslint": "^7.32.0",
     "fs-extra": "^9.0.1",
     "husky": "^4.3.0",
@@ -54,7 +54,7 @@
     "typedoc-plugin-pages-fork-fork": "^0.0.3"
   },
   "peerDependencies": {
-    "czas": "^1.1.0"
+    "czas": "^1.2.0"
   },
   "husky": {
     "hooks": {

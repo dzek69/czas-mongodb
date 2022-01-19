@@ -12,8 +12,15 @@ const createDriver = (collection: Collection, onLoad?: () => void): Persistence 
             });
             return String(i.insertedId);
         },
+        update: async (id, config, action, name) => {
+            await collection.updateOne({ _id: new mdb.ObjectId(id) }, {
+                $set: {
+                    config, action, name,
+                },
+            });
+        },
         remove: async (_id) => {
-            await collection.remove({
+            await collection.deleteOne({
                 _id: new mdb.ObjectId(_id),
             });
         },
